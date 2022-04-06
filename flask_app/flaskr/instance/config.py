@@ -6,7 +6,7 @@ class Config(object):
     DEBUG = False
     CSRF_ENABLED = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = f"postgresql://postgres:postgres@localhost:5432/test_db"
+    SQLALCHEMY_DATABASE_URI = f"postgresql://postgres:Lambdateam+@db-listas-negras.cwny75wezfae.us-east-1.rds.amazonaws.com:5432/db_listas_negras"
     PROPAGATE_EXCEPTIONS = True
 
 class TestingConfig(Config):
