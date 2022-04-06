@@ -16,5 +16,5 @@ def create_app(config_name):
     db.create_all()
     api = Api(app)
     api.add_resource(VistaRoot, '/')
-    api.add_resource(VistaBlacklists, '/blacklists')
+    api.add_resource(VistaBlacklists, '/blacklists/<string:email>')
     return app

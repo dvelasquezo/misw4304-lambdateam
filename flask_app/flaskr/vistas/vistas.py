@@ -14,8 +14,8 @@ class VistaBlacklists(Resource):
         db.session.commit()
         return 'El email fue agregagado correctamente a la lista negra', 200
 
-    def get(self):
-       email_consultado =EmailListaNegra.query.filter(EmailListaNegra.email == request.json["email"]).first()
+    def get(self, email):
+       email_consultado = EmailListaNegra.query.filter(EmailListaNegra.email == email).first()
        if email_consultado != None:
            return {"email": email_consultado.email, "Motivo": email_consultado.motivo}
 
