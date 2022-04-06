@@ -5,7 +5,7 @@ from ..modelos import db, EmailListaNegra
 from flask import request
 import uuid
 
-class VistaBlacklists(Resource):
+class VistaBlacklistsPost(Resource):
     def post(self):
         if (EmailListaNegra.query.filter(EmailListaNegra.email == request.json["email"]).first()) != None:
             return "El email ya existe en la lista negra", 403
@@ -14,6 +14,7 @@ class VistaBlacklists(Resource):
         db.session.commit()
         return 'El email fue agregagado correctamente a la lista negra', 200
 
+class VistaBlacklistsGet(Resource):
     def get(self, email):
        email_consultado = EmailListaNegra.query.filter(EmailListaNegra.email == email).first()
        if email_consultado != None:

@@ -2,7 +2,7 @@ from flask import Flask
 from .instance.config import app_config
 from flask_restful import Api
 from .modelos import db
-from .vistas import VistaRoot, VistaBlacklists
+from .vistas import VistaRoot, VistaBlacklistsPost, VistaBlacklistsGet
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -16,5 +16,7 @@ def create_app(config_name):
     db.create_all()
     api = Api(app)
     api.add_resource(VistaRoot, '/')
-    api.add_resource(VistaBlacklists, '/blacklists/<string:email>')
+    api.add_resource(VistaBlacklistsPost, '/blacklists')
+    api.add_resource(VistaBlacklistsGet, '/blacklists/<string:email>')
+
     return app
